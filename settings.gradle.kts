@@ -1,1 +1,1 @@
-rootProject.name = "gsv-ranked-watcher-twitch-reporter"
+rootProject.name = "gsv-ranked-watcher-discord-reporter"
