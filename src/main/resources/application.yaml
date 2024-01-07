@@ -8,5 +8,5 @@ spring:
       value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
 
 discord:
-  webhook-url: ""
-  avatar-url: ""
+  webhook-url: ${DISCORD_CHANNEL_WEBHOOK_URL}
+  avatar-url: ${DISCORD_AVATAR_URL}
