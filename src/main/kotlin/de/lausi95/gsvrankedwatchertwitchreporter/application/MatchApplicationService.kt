@@ -5,7 +5,7 @@ import de.lausi95.gsvrankedwatchertwitchreporter.domain.service.MatchReporter
 import org.springframework.stereotype.Component
 
 @Component
-class MatcApplicationService(private val matchReporter: MatchReporter) {
+class MatchApplicationService(private val matchReporter: MatchReporter) {
 
   fun reportMatch(match: Match) {
     matchReporter.reportMatch(match)
