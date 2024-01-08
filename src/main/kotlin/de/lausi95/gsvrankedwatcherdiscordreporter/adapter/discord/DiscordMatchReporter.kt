@@ -48,7 +48,7 @@ private class DiscordMatchReporter(
 
     val embed = WebhookEmbedBuilder()
       .setColor(color.value)
-      .setTitle(WebhookEmbed.EmbedTitle(title, null))
+      .setTitle(WebhookEmbed.EmbedTitle(title, "https://www.leagueofgraphs.com/de/match/euw/${match.matchId}"))
       .setDescription(match.formatParticipants())
       .build()
 
