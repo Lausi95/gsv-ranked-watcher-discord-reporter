@@ -1,7 +1,7 @@
-package de.lausi95.gsvrankedwatchertwitchreporter.application
+package de.lausi95.gsvrankedwatcherdiscordreporter.application
 
-import de.lausi95.gsvrankedwatchertwitchreporter.domain.model.match.Match
-import de.lausi95.gsvrankedwatchertwitchreporter.domain.service.MatchReporter
+import de.lausi95.gsvrankedwatcherdiscordreporter.domain.model.match.Match
+import de.lausi95.gsvrankedwatcherdiscordreporter.domain.service.MatchReporter
 import org.slf4j.LoggerFactory
 import org.springframework.stereotype.Component
 

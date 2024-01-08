@@ -1,4 +1,4 @@
-package de.lausi95.gsvrankedwatchertwitchreporter.domain.model.match
+package de.lausi95.gsvrankedwatcherdiscordreporter.domain.model.match
 
 data class Participant(
   val summonerId: String,

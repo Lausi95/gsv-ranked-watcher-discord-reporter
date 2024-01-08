@@ -1,6 +1,6 @@
-package de.lausi95.gsvrankedwatchertwitchreporter.domain.model.match
+package de.lausi95.gsvrankedwatcherdiscordreporter.domain.model.match
 
-import de.lausi95.gsvrankedwatchertwitchreporter.someString
+import de.lausi95.gsvrankedwatcherdiscordreporter.someString
 import org.assertj.core.api.Assertions.assertThat
 import org.junit.jupiter.api.Test
 

@@ -1,4 +1,4 @@
-package de.lausi95.gsvrankedwatchertwitchreporter
+package de.lausi95.gsvrankedwatcherdiscordreporter
 
 import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.boot.runApplication

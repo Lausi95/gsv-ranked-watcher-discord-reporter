@@ -5,4 +5,4 @@ discord:
 logging:
   level:
     root: warn
-    de.lausi95.gsvrankedwatchertwitchreporter: info
+    de.lausi95.gsvrankedwatcherdiscordreporter: info

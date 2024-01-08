@@ -1,4 +1,4 @@
-package de.lausi95.gsvrankedwatchertwitchreporter
+package de.lausi95.gsvrankedwatcherdiscordreporter
 
 import kotlin.random.Random
 

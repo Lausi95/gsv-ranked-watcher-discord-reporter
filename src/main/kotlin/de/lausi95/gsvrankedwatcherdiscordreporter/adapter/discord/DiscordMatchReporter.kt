@@ -1,11 +1,11 @@
-package de.lausi95.gsvrankedwatchertwitchreporter.adapter.discord
+package de.lausi95.gsvrankedwatcherdiscordreporter.adapter.discord
 
 import club.minnced.discord.webhook.WebhookClient
 import club.minnced.discord.webhook.send.WebhookEmbed
 import club.minnced.discord.webhook.send.WebhookEmbedBuilder
 import club.minnced.discord.webhook.send.WebhookMessageBuilder
-import de.lausi95.gsvrankedwatchertwitchreporter.domain.model.match.Match
-import de.lausi95.gsvrankedwatchertwitchreporter.domain.service.MatchReporter
+import de.lausi95.gsvrankedwatcherdiscordreporter.domain.model.match.Match
+import de.lausi95.gsvrankedwatcherdiscordreporter.domain.service.MatchReporter
 import org.springframework.beans.factory.annotation.Value
 import org.springframework.stereotype.Component
 
