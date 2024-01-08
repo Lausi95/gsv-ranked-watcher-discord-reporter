@@ -33,6 +33,19 @@ object Colors {
   fun select(win: Boolean) = if (win) green else red
 }
 
+private fun Match.formatTitle(): String {
+  val participantNames = formatParticipantNames()
+  val pronouns = formatPronoun()
+  val win = formatWin()
+  val emoteValue = Emotes.select(this.win).value
+
+  return "$participantNames played a match, and $pronouns $win $emoteValue"
+}
+
+fun Match.createLeagueOfGraphsLink(): String {
+  return "https://www.leagueofgraphs.com/de/match/euw/$matchId"
+}
+
 @Component
 private class DiscordMatchReporter(
   @Value("\${discord.webhook-url}") private val webhookUrl: String,
@@ -42,22 +55,26 @@ private class DiscordMatchReporter(
   private val webhookClient = WebhookClient.withUrl(webhookUrl)
 
   override fun reportMatch(match: Match) {
-    val color = Colors.select(match.win)
-    val emote = Emotes.select(match.win)
-    val title = "${match.formatParticipantNames()} played a match, and ${match.formatPronoun()} ${match.formatWin()} ${emote.value}"
+    val titleText = match.formatTitle()
+    val body = match.formatParticipants()
 
+    /* TODO find out, why the description is not displayed.
+    val leagueOfGraphsLink = match.createLeagueOfGraphsLink()
+    val embedTitle = WebhookEmbed.EmbedTitle(titleText, leagueOfGraphsLink)
     val embed = WebhookEmbedBuilder()
-      .setColor(color.value)
-      .setTitle(WebhookEmbed.EmbedTitle(title, "https://www.leagueofgraphs.com/de/match/euw/${match.matchId}"))
+      .setColor(Colors.select(match.win).value)
+      .setTitle(embedTitle)
       .setDescription(match.formatParticipants())
       .build()
+    */
 
-    val messageBuilder = WebhookMessageBuilder()
-    messageBuilder.setUsername("Ranked Watcher")
-    messageBuilder.setAvatarUrl(avatarUrl)
-    messageBuilder.setContent(title)
-    messageBuilder.addEmbeds(embed)
+    val message = WebhookMessageBuilder()
+      .setUsername("Ranked Watcher")
+      .setAvatarUrl(avatarUrl)
+      .setContent("$titleText\n\n$body")
+      // .addEmbeds(embed)
+      .build()
 
-    webhookClient.send(messageBuilder.build())
+    webhookClient.send(message)
   }
 }

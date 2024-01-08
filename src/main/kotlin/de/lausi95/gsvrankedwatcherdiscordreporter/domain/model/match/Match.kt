@@ -49,6 +49,6 @@ fun List<String>.formatParticipantNames(): String {
     return ""
 
   return listOf(dropLast(1).joinToString(", "), last())
-    .filter{ it.isNotBlank() }
+    .filter { it.isNotBlank() }
     .joinToString(" and ")
 }
