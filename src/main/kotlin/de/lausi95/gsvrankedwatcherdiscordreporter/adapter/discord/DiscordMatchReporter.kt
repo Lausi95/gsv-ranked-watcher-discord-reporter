@@ -20,13 +20,17 @@ data class Emote(val value: String) {
 data class Color(val value: Int)
 
 object Emotes {
-  val pog = Emote("<:pog:853266160232431646>")
-  val sadge = Emote("<:sadge:934050600696573952>")
+  private val pog = Emote("<:pog:853266160232431646>")
+  private val sadge = Emote("<:sadge:934050600696573952>")
+
+  fun select(win: Boolean) = if (win) pog else sadge
 }
 
 object Colors {
-  val red = Color(0xFF0000)
-  val green = Color(0x00FF00)
+  private val red = Color(0xFF0000)
+  private val green = Color(0x00FF00)
+
+  fun select(win: Boolean) = if (win) green else red
 }
 
 @Component
@@ -38,8 +42,8 @@ private class DiscordMatchReporter(
   private val webhookClient = WebhookClient.withUrl(webhookUrl)
 
   override fun reportMatch(match: Match) {
-    val color = if (match.win) Colors.green else Colors.red
-    val emote = if (match.win) Emotes.pog else Emotes.sadge
+    val color = Colors.select(match.win)
+    val emote = Emotes.select(match.win)
     val title = "${match.formatParticipantNames()} played a match, and ${match.formatPronoun()} ${match.formatWin()} ${emote.value}"
 
     val embed = WebhookEmbedBuilder()
