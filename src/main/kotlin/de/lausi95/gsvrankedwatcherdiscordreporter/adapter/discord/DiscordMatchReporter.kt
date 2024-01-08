@@ -58,21 +58,19 @@ private class DiscordMatchReporter(
     val titleText = match.formatTitle()
     val body = match.formatParticipants()
 
-    /* TODO find out, why the description is not displayed.
     val leagueOfGraphsLink = match.createLeagueOfGraphsLink()
     val embedTitle = WebhookEmbed.EmbedTitle(titleText, leagueOfGraphsLink)
     val embed = WebhookEmbedBuilder()
       .setColor(Colors.select(match.win).value)
       .setTitle(embedTitle)
-      .setDescription(match.formatParticipants())
+      .setDescription(body)
       .build()
-    */
 
     val message = WebhookMessageBuilder()
       .setUsername("Ranked Watcher")
       .setAvatarUrl(avatarUrl)
-      .setContent("$titleText\n\n$body")
-      // .addEmbeds(embed)
+      .setContent(titleText)
+      .addEmbeds(embed)
       .build()
 
     webhookClient.send(message)

@@ -32,7 +32,7 @@ data class Match(
   }
 
   fun formatParticipants(): String {
-    return participants.map { it.format() }.joinToString { "\n\n" }
+    return participants.joinToString("\n\n") { it.format() }
   }
 
   fun formatWin(): String {
